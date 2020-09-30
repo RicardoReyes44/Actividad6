@@ -15,6 +15,25 @@ class Aspirante{
 		this.redesSociales = redesSociales;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public byte getEdad() {
+		return edad;
+	}
+	public void setEdad(byte edad) {
+		this.edad = edad;
+	}
+	public String[] getRedesSociales() {
+		return redesSociales;
+	}
+	public void setRedesSociales(String[] redesSociales) {
+		this.redesSociales = redesSociales;
+	}
+	
 	@Override
 	public String toString() {
 		return "Aspirante [nombre=" + nombre + ", edad=" + edad + ", redesSociales=" + Arrays.toString(redesSociales)
