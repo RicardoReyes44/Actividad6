@@ -45,6 +45,21 @@ public class RegistroAspirantes {
 			listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
 		}
 		
+	}
+	
+	public void eliminarAspirante() {
+		
+	}
+	
+	public void mostrarAspirantes() {
+		System.out.println("\n-------------------------------");
+		for (Object aspirante : listaAspirantes) {
+			System.out.println(aspirante);
+		}
+		System.out.println("-------------------------------\n");
+	}
+	
+	public void buscarAspirante() {
 		
 	}
 	
