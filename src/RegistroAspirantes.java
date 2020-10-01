@@ -52,7 +52,7 @@ public class RegistroAspirantes {
 		int folio;
 		int cont=0;
 		
-		if(listaAspirantes.size()!=0) {
+		if(listaAspirantes.isEmpty()) {
 			while(true) {
 				System.out.print("Introduce folio del aspirante a eliminar: ");
 				folio = entrada.nextInt();
@@ -78,7 +78,7 @@ public class RegistroAspirantes {
 	}
 	
 	public void mostrarAspirantes() {
-		if(listaAspirantes.size()==0) {
+		if(listaAspirantes.isEmpty()) {
 			System.out.println("No hay aspirantes");
 		}else {
 			System.out.println("\n-------------------------------");
@@ -95,7 +95,7 @@ public class RegistroAspirantes {
 	
 	public String buscarAspirante() {
 		
-		if(listaAspirantes.size()!=0) {
+		if(!listaAspirantes.isEmpty()) {
 		    int folio;
 		
 		    while(true) {
