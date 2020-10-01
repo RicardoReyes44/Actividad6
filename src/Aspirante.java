@@ -9,8 +9,9 @@ class Aspirante{
 	private String redesSociales[];
 	
 	public Aspirante() {}
-	public Aspirante(String nombre, byte edad, String[] redesSociales) {
+	public Aspirante(int folio, String nombre, byte edad, String[] redesSociales) {
 		super();
+		this.folio = folio;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.redesSociales = redesSociales;
@@ -41,7 +42,7 @@ class Aspirante{
 	
 	@Override
 	public String toString() {
-		return "Aspirante [nombre=" + nombre + ", edad=" + edad + ", redesSociales=" + Arrays.toString(redesSociales)
+		return "Aspirante [folio=" + folio + ", nombre=" + nombre + ", edad=" + edad + ", redesSociales=" + Arrays.toString(redesSociales)
 				+ "]";
 	}
 

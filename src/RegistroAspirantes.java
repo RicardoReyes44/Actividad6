@@ -8,37 +8,43 @@ public class RegistroAspirantes {
 	
 	public RegistroAspirantes() {listaAspirantes = new ArrayList<Aspirante>();}
 	
-	public void ingresarAspirante() {
+	public void registroAspirante() {
 		
 		String[] redes;
 		byte edad;
+		int folio;
 		
-		System.out.println("Introduce nombre: ");
+		System.out.println("-------------------------------");
+		
+		System.out.println("\nIntroduce nombre: ");
 		String nombre = entrada.nextLine();
 
-		System.out.println("Introduce redes sociales, ej: Facebook, Twitter, instagram");
+		System.out.println("\nIntroduce redes sociales.\nej.(Facebook, Twitter, instagram):");
 		redes = entrada.nextLine().replace(" ", "").split(",");
 
 		while(true) {
-			System.out.println("Introduce edad: ");
+			System.out.println("\nIntroduce edad: ");
 			edad = entrada.nextByte();
 			
 			if(edad>17) {
 				break;
 			}else {
-				System.out.println("No puedes ingresar esa edades menores\nde 18,por favor prueba de nuevo");
+				System.out.println("No puedes ingresar esa edades menores\nde 17, por favor prueba de nuevo");
 			}
 		}
 		
-		listaAspirantes.add(new Aspirante(nombre, (byte)edad, redes));
+		entrada.nextLine();
 		
-	}
-	
-	public void eliminarAspirante() {
+		System.out.println("-------------------------------");
 		
-	}
-	
-	public void mostrarAspirantes() {
+		if(listaAspirantes.size()==0) {
+			folio=0;
+			listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
+		}else {
+			folio = listaAspirantes.get(listaAspirantes.size()-1).getFolio()+1;
+			listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
+		}
+		
 		
 	}
 	
