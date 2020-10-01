@@ -33,34 +33,79 @@ public class RegistroAspirantes {
 			}
 		}
 		
-		entrada.nextLine();
+		liberarMemoria();
 		
 		System.out.println("-------------------------------");
 		
 		if(listaAspirantes.size()==0) {
-			folio=0;
-			listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
+			folio = 1;
 		}else {
 			folio = listaAspirantes.get(listaAspirantes.size()-1).getFolio()+1;
-			listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
+			
 		}
+		
+		listaAspirantes.add(new Aspirante(folio, nombre, (byte)edad, redes));
 		
 	}
 	
-	public void eliminarAspirante() {
+	public String eliminarAspirante() {
+		int folio;
+		int cont=0;
 		
+		while(true) {
+			System.out.print("Introduce folio del aspirante a eliminar: ");
+			folio = entrada.nextInt();
+			
+			if(folio<=0) {
+				System.out.println("Folio invalido, por favor prueba de nuevo");
+			}else {
+				break;
+			}
+		}
+		
+		for (Aspirante aspirante : listaAspirantes) {
+			if(folio==aspirante.getFolio()) {
+				return "Se elimino: " + listaAspirantes.remove(cont);
+			}
+			cont++;
+		}
+		
+		return "No se encontro al aspirante";
 	}
 	
 	public void mostrarAspirantes() {
 		System.out.println("\n-------------------------------");
-		for (Object aspirante : listaAspirantes) {
+		for (Aspirante aspirante : listaAspirantes) {
 			System.out.println(aspirante);
 		}
 		System.out.println("-------------------------------\n");
 	}
 	
-	public void buscarAspirante() {
+	public void liberarMemoria() {
+		entrada.nextLine();
+	}
+	
+	public String buscarAspirante() {
+		int folio;
 		
+		while(true) {
+			System.out.print("Introduce folio del aspirante a buscar: ");
+			folio = entrada.nextInt();
+			
+			if(folio<=0) {
+				System.out.println("Folio invalido, por favor prueba de nuevo");
+			}else {
+				break;
+			}
+		}
+		
+		for (Aspirante aspirante : listaAspirantes) {
+			if(folio==aspirante.getFolio()) {
+				return "Encontrado: " + aspirante;
+			}
+		}
+		
+		return "No se encontro al aspirante";
 	}
 	
 }

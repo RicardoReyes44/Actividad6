@@ -32,10 +32,14 @@ public class Prueba {
 			    	ra.mostrarAspirantes();
 				    break;
 			    case 3:
-			    	ra.buscarAspirante();
+			    	System.out.println("\n-------------------------------");
+			    	System.out.println(ra.buscarAspirante());
+			    	System.out.println("-------------------------------\n");
 				    break;
 			    case 4:
-			    	ra.eliminarAspirante();
+			    	System.out.println("\n-------------------------------");
+			    	System.out.println(ra.eliminarAspirante());
+			    	System.out.println("-------------------------------\n");
 				    break;
 			    case 5:
 				    candado = false;
@@ -45,8 +49,9 @@ public class Prueba {
 				    break;
 			    }
 			}catch(InputMismatchException error) {
-				System.out.println("Error de entrada<" + error + "> por favor vuelve a intentarlo");
+				System.out.println("\nError de entrada<" + error + "> por favor vuelve a intentarlo\n");
 				entrada.nextLine();
+				ra.liberarMemoria();
 			}
 			
 		}
