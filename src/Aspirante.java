@@ -3,6 +3,7 @@ import java.util.Arrays;
 class Aspirante{
 	
 	//folio
+	private int folio;
 	private String nombre;
 	private byte edad;
 	private String redesSociales[];
@@ -15,6 +16,10 @@ class Aspirante{
 		this.redesSociales = redesSociales;
 	}
 	
+	public int getFolio() {
+		return folio;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
