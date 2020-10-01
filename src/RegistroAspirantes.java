@@ -52,33 +52,41 @@ public class RegistroAspirantes {
 		int folio;
 		int cont=0;
 		
-		while(true) {
-			System.out.print("Introduce folio del aspirante a eliminar: ");
-			folio = entrada.nextInt();
+		if(listaAspirantes.size()!=0) {
+			while(true) {
+				System.out.print("Introduce folio del aspirante a eliminar: ");
+				folio = entrada.nextInt();
+				
+				if(folio<=0) {
+					System.out.println("Folio invalido, por favor prueba de nuevo");
+				}else {
+					break;
+				}
+			}
 			
-			if(folio<=0) {
-				System.out.println("Folio invalido, por favor prueba de nuevo");
-			}else {
-				break;
+			for (Aspirante aspirante : listaAspirantes) {
+				if(folio==aspirante.getFolio()) {
+					return "Se elimino: " + listaAspirantes.remove(cont);
+				}
+				cont++;
 			}
+			
+			return "No se encontro al aspirante";
+		}else {
+			return "No hay aspirantes";
 		}
-		
-		for (Aspirante aspirante : listaAspirantes) {
-			if(folio==aspirante.getFolio()) {
-				return "Se elimino: " + listaAspirantes.remove(cont);
-			}
-			cont++;
-		}
-		
-		return "No se encontro al aspirante";
 	}
 	
 	public void mostrarAspirantes() {
-		System.out.println("\n-------------------------------");
-		for (Aspirante aspirante : listaAspirantes) {
-			System.out.println(aspirante);
+		if(listaAspirantes.size()==0) {
+			System.out.println("No hay aspirantes");
+		}else {
+			System.out.println("\n-------------------------------");
+			for (Aspirante aspirante : listaAspirantes) {
+				System.out.println(aspirante);
+			}
+			System.out.println("-------------------------------\n");
 		}
-		System.out.println("-------------------------------\n");
 	}
 	
 	public void liberarMemoria() {
@@ -86,26 +94,30 @@ public class RegistroAspirantes {
 	}
 	
 	public String buscarAspirante() {
-		int folio;
 		
-		while(true) {
-			System.out.print("Introduce folio del aspirante a buscar: ");
-			folio = entrada.nextInt();
+		if(listaAspirantes.size()!=0) {
+		    int folio;
+		
+		    while(true) {
+			    System.out.print("Introduce folio del aspirante a buscar: ");
+			    folio = entrada.nextInt();
 			
-			if(folio<=0) {
-				System.out.println("Folio invalido, por favor prueba de nuevo");
-			}else {
-				break;
-			}
-		}
+			    if(folio<=0) {
+				    System.out.println("Folio invalido, por favor prueba de nuevo");
+			    }else {
+				    break;
+			    }
+		    }
 		
-		for (Aspirante aspirante : listaAspirantes) {
-			if(folio==aspirante.getFolio()) {
-				return "Encontrado: " + aspirante;
-			}
-		}
+		    for (Aspirante aspirante : listaAspirantes) {
+			    if(folio==aspirante.getFolio()) {
+				    return "Encontrado: " + aspirante;
+			    }
+		    }
 		
-		return "No se encontro al aspirante";
+		    return "No se encontro al aspirante";
+	    }else {
+		    return "No hay aspirantes";
+	    }
 	}
-	
 }
